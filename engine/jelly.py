@@ -5,10 +5,10 @@ class Tile:
     def __init__(self, jelly):
         pass
 
-    def get_cord():
+    def get_cord(self):
         pass
 
-    def get_jelly():
+    def get_jelly(self):
         pass
 
 class Jelly(Tile):
@@ -16,5 +16,5 @@ class Jelly(Tile):
         pass
 
 class Player(Jelly):
-    def input():
+    def input(self):
         pass
