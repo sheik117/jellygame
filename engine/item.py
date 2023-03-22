@@ -4,10 +4,11 @@ class Item:
         self.sprite = sprite
         self.stats = stats
 
-    def delete_item(self, item):
+    def delete_item(self):
         pass
 
-    def edit_item(self, item, name, sprite, stats):
+    def edit_item(self, name, sprite, stats):
         pass
 
-    
+    def use_item(self):
+        pass
