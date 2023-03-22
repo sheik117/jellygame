@@ -1,5 +1,8 @@
+import color as c
+
+
 class Tile:
-    def __init__(self, color=color.WHITE, sprite=None, jelly=None):
+    def __init__(self, color=c.WHITE, sprite=None, jelly=None):
         self.color = color
         self.sprite = sprite
         self.jelly = jelly
@@ -12,7 +15,7 @@ class Tile:
 
 
 class Jelly(Tile):
-    def __init__(self, color=color.WHITE, sprite=None, owner=0, jelly=None):
+    def __init__(self, color=c.WHITE, sprite=None, owner=0, jelly=None):
         super().__init__(self, color, sprite, jelly)
         self.owner = owner
 
