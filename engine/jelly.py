@@ -28,17 +28,25 @@ class Terrain:
 
 
 class Jelly():
-    def __init__(self, color=c.WHITE, sprite=None, owner=0, jelly=None, inv=None):
+    def __init__(self, color=c.WHITE, sprite=None, owner=0, jelly=None, inv=None, stats=None):
         #super().__init__(self, color, sprite, jelly)
         self.color = color
         self.sprite = sprite
         self.jelly = jelly
         self.inv = inv
         self.owner = owner
+        self.stats = stats
+
+    def add_stat(self, name, value):
+        if self.stats == None:
+            self.stats = {name : value}
+        else:
+            self.stats[name] = value
+
 
 class Character(Jelly):
-    def __init__(self, hp=10, mp=10, color=c.WHITE, sprite=None, owner=0, jelly=None, inv=None):
-        super().__init__(color, sprite, owner, jelly, inv)
+    def __init__(self, hp=10, mp=10, color=c.WHITE, sprite=None, owner=0, jelly=None, inv=None, stats=None):
+        super().__init__(color, sprite, owner, jelly, inv, stats)
         self.hp = hp
         self.max_hp = hp
         self.mp = mp
