@@ -1,9 +1,8 @@
 class Tile:
-    def __init__(self) -> None:
-        pass
-    
-    def __init__(self, jelly):
-        pass
+    def __init__(self, color=color.WHITE, sprite=None, jelly=None):
+        self.color = color
+        self.sprite = sprite
+        self.jelly = jelly
 
     def get_cord(self):
         pass
@@ -11,9 +10,15 @@ class Tile:
     def get_jelly(self):
         pass
 
+
 class Jelly(Tile):
+    def __init__(self, color=color.WHITE, sprite=None, owner=0, jelly=None):
+        super().__init__(self, color, sprite, jelly)
+        self.owner = owner
+
     def movement(x, y):
         pass
+
 
 class Player(Jelly):
     def input(self):
