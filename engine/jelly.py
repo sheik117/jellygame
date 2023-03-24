@@ -56,6 +56,6 @@ class Character(Jelly):
     def movement(x, y):
         pass
 
-class Player(Jelly):
+class Player(Character):
     def input(self):
         pass
