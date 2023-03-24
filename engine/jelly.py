@@ -44,8 +44,8 @@ class Jelly():
 
 
 class Character(Jelly):
-    def __init__(self, hp=10, mp=10, color=c.WHITE, sprite=None, owner=0, jelly=None, inv=None, stats=None):
-        super().__init__(color, sprite, owner, jelly, inv, stats)
+    def __init__(self, hp=10, mp=10, color=c.WHITE, sprite=None, owner=0, inv=None, stats=None):
+        super().__init__(color, sprite, owner, inv, stats)
         self.hp = hp
         self.max_hp = hp
         self.mp = mp
