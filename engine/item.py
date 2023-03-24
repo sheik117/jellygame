@@ -1,5 +1,5 @@
 class Item:
-    def __init__(self, name, sprite, stats):
+    def __init__(self, name, sprite, stats=None):
         self.name = name
         self.sprite = sprite
         self.stats = stats
@@ -10,9 +10,13 @@ class Item:
     def edit_item(self, name, sprite, stats):
         pass
 
-    def use_item(self, amount=None):
+    def set_amount(self, amount):
         pass
 
-    def set_amount(self, amount):
+class UsableItem(Item):
+    def __init__(self, name, sprite, stats=None):
+        super().__init__(name, sprite, stats)
+
+    def use_item(self, amount=None):
         pass
 
