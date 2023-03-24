@@ -10,5 +10,9 @@ class Item:
     def edit_item(self, name, sprite, stats):
         pass
 
-    def use_item(self):
+    def use_item(self, amount=None):
         pass
+
+    def set_amount(self, amount):
+        pass
+

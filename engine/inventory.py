@@ -9,3 +9,6 @@ class Inventory:
 
     def remove_item(self, item):
         pass # Removes item from inventory
+
+    def edit_size(self, size):
+        pass # Edit size of inventory
