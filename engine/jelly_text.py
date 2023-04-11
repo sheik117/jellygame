@@ -1,9 +1,11 @@
+import color as c
+
 class Jelly_text:
 
-    def textbox_create(self):
+    def __init__(self, text, pos_x, pos_y, span_X, span_y, text_color=c.BLACK, background_color=c.WHITE):
         pass  # Creates textbox
 
-    def set_front_color(self, color):
+    def set_text_color(self, color):
         pass  # Sets color for textbox on front layer
 
     def set_text(self, text):
