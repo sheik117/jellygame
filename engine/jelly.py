@@ -7,6 +7,12 @@ class Tile:
         self.sprite = sprite
         self.jelly = jelly
 
+    def get_color(self):
+        return self.color
+
+    def set_color(self, color):
+        self.color = color
+
     def get_cord(self):
         pass
 
