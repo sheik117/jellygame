@@ -6,21 +6,19 @@ class Window:
     def __init__(self, title):
         # create window
         self.window = tk.Tk()
-        self.window.attributes("-fullscreen", True)
+        #self.window.attributes("-fullscreen", True)
         self.window.title(title)
         self.tiles = [[jelly.Tile] for _ in range(0)]
-        #self.frames = tk.Frame()
 
     def create_grid(self, size_x, size_y):
         # render a grid of Tiles in the window
         self.tiles = [[jelly.Tile] * size_x for _ in range(size_y)]
         self.size_x = size_x
         self.size_y = size_y
+        self.window.minsize(size_x*39, size_y*39)
         for y in range(size_y):
-            self.window.rowconfigure([y], weight=1, minsize=38)
-            self.window.columnconfigure([y], weight=1, minsize=38)
             for x in range(size_x):
-                self.tiles[x][y] = jelly.Tile()
+                self.tiles[y][x] = jelly.Tile()
 
     def draw_grid(self):
         # make Frame for every tile, or the jelly on top of it
@@ -29,9 +27,11 @@ class Window:
                 self.draw_tile(x, y)
 
     def draw_tile(self, x, y):
-        frame = tk.Frame(width=38, height=38)
-        frame.grid(row=y, column=x)
-        frame.configure(bg=self.tiles[x][y].get_color())
+        # draw tile
+        frame = tk.Frame(self.window)
+        frame.pack()
+        frame.place(x=x*39, y=y*39, height=38, width=38)
+        frame.configure(bg=self.tiles[y][x].get_color())
 
     def loop(self, function):
         # make function run as long as the window exists
