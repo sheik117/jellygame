@@ -38,7 +38,7 @@ class Jelly():
 
     def add_stat(self, name, value):
         if self.stats == None:
-            self.stats = {name : value}
+            self.stats = {name: value}
         else:
             self.stats[name] = value
 
