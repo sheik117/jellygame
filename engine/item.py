@@ -2,7 +2,7 @@ from engine.jelly import Character
 
 
 class Item:
-    def __init__(self, name, sprite, stats=None, amount=1):
+    def __init__(self, name, sprite=None, stats=None, amount=1):
         self.name = name
         self.sprite = sprite
         self.stats = stats
