@@ -17,7 +17,7 @@ class Tile:
         pass
 
     def get_jelly(self):
-        pass
+        return self.jelly
 
     def set_jelly(self, jelly):
         self.jelly = jelly
@@ -27,6 +27,7 @@ class Tile:
 
     def set_terrain(self, terrain):
         self.terrain = terrain
+
 
 class Terrain:
     def __init__(self) -> None:
@@ -41,6 +42,12 @@ class Jelly():
         self.inv = inv
         self.owner = owner
         self.stats = stats
+
+    def get_color(self):
+        return self.color
+
+    def set_color(self, color):
+        self.color = color
 
     def add_stat(self, name, value):
         if self.stats == None:
@@ -57,9 +64,7 @@ class Character(Jelly):
         self.mp = mp
         self.max_mp = mp
 
-
-
-    def movement(x, y):
+    def movement(self, x, y):
         pass
 
 class Player(Character):
