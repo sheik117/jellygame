@@ -7,10 +7,10 @@ setup(name='engine',
         description='engine for jelly game',
         author='Jelly Game Team',
         install_requires=[
-            'Tkinter',
-            'pyaudio',
-            'wave',
-            'PIL'
+            'Tkinter >= 8.6.11',
+            'pyaudio >= 0.2.11',
+            'wave >= 0.0.2',
+            'PIL >= 8.3.2'
         ],
         packages=['engine'],
         package_dir={'engine': 'engine'},
