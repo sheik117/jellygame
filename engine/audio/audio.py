@@ -11,7 +11,7 @@ class Audio:
         self.frame_rate = self.f.getframerate()
         self.num_frames = self.f.getnframes()
 
-        # Create a PyAudio object
+        # Create a P    yAudio object
         self.p = pyaudio.PyAudio()
 
         # Open a PyAudio stream

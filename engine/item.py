@@ -15,14 +15,14 @@ class Item:
             self.stats[name] = value
 
     def delete_item(self):
-        del self;
+        del self
 
     def edit_item(self, name, sprite, stats):
         self.name = name;
         self.sprite = sprite;
         self.stats = stats;
 
-    # sets how many objectinstances of the item there are
+    # sets how many object instances of the item there are
     def set_amount(self, amount):
         self.amount = amount;
 
