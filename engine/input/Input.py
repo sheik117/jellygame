@@ -1,17 +1,23 @@
-from pynput import keyboard
+import tkinter as tk
 
 
 # one key per input_action, can make it a list later
 class InputAction:
-    def __init__(self, key_name, function):
-        self.key_name = key_name
+    def __init__(self, window, key_string, function):
+        self.window = window
+        self.key_string = key_string
         self.function = function
+        self.func_id = window.bind(key_string, function)
 
     def change_function(self, new_function):
         self.function = new_function
+        self.window.unbind(self.key_string, self.func_id)
+        self.func_id = self.window.bind(self.key_string, new_function)
 
-    def change_key(self, new_key_name):
-        self.key_name = new_key_name
+    def change_key(self, new_key_string):
+        self.key_string = new_key_string
+        self.window.unbind(self.key_string, self.func_id)
+        self.func_id = self.window.bind(self.key_string, self.function)
 
 
 # standard function called by standard input_actions
@@ -21,26 +27,8 @@ def print_input_action(input_action_name):
 
 # standard input_actions
 input_actions = {
-    "up": InputAction("w", print_input_action),
-    "left": InputAction("a", print_input_action),
-    "down": InputAction("s", print_input_action),
-    "right": InputAction("d", print_input_action)
+    #"up": InputAction(w, "<w>", print_input_action),
+    #"left": InputAction(w, "<a>", print_input_action),
+    #"down": InputAction(w, "<s>", print_input_action),
+    #"right": InputAction(w, "<d>", print_input_action)
 }
-
-
-def on_press(key):
-    try:
-        for input_action_name, input_action in input_actions.items():
-            if key.char == input_action.key_name:
-                input_action.function(input_action_name)
-    except AttributeError:
-        pass
-
-
-def on_release(key):
-    pass
-
-
-# create listener for the keyboard
-with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
-    listener.join()
