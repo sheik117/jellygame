@@ -3,31 +3,30 @@ import jelly
 
 
 class JellyWindow:
-    def __init__(self, title, tile_size=38):
+    def __init__(self, title):
         # create window
         self.window = tk.Tk()
         #self.window.attributes("-fullscreen", True)
         self.window.title(title)
         self.tiles = [[jelly.Tile] for _ in range(0)]
-        self.tile_size = tile_size
 
     def create_grid(self, size_x, size_y):
         # render a grid of Tiles in the window
         self.tiles = [[jelly.Tile] * size_x for _ in range(size_y)]
         self.size_x = size_x
         self.size_y = size_y
-        self.window.minsize(size_x*(self.tile_size+1), size_y*(self.tile_size+1))
         for y in range(size_y):
             for x in range(size_x):
                 self.tiles[y][x] = jelly.Tile()
 
-    def draw_grid(self, offset_x=0, offset_y=0):
+    def draw_grid(self, offset_x=0, offset_y=0, tile_size=38):
         # make Frame for every tile, or the jelly on top of it
+        self.window.minsize(self.size_x*(tile_size+1), self.size_y*(tile_size+1))
         for y in range(self.size_y):
             for x in range(self.size_x):
-                self.draw_tile(x, y, offset_x, offset_y)
+                self.draw_tile(x, y, offset_x, offset_y, tile_size)
 
-    def draw_tile(self, x, y, offset_x=0, offset_y=0):
+    def draw_tile(self, x, y, offset_x=0, offset_y=0, tile_size=38):
         # draw tile
         tile = self.tiles[y][x]
         if tile.get_jelly() is not None:
@@ -35,7 +34,7 @@ class JellyWindow:
             tile = tile.get_jelly()
         frame = tk.Frame(self.window)
         frame.pack()
-        frame.place(x=x*(self.tile_size+1)+offset_x*self.tile_size, y=y*(self.tile_size+1)+offset_y*self.tile_size, height=self.tile_size, width=self.tile_size)
+        frame.place(x=x*(tile_size+1)+offset_x*tile_size, y=y*(tile_size+1)+offset_y*tile_size, height=tile_size, width=tile_size)
         frame.configure(bg=tile.get_color())
 
     def loop(self, function):
