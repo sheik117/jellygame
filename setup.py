@@ -1,4 +1,5 @@
-# setupfile for the engine module
+# setupfile for the jellygame module
+# use command "python setup.py sdist" to create a source distribution
 
 from distutils.core import setup
 
