@@ -4,7 +4,7 @@ import tkinter as tk
 # one key per input_action, can make it a list later
 class InputAction:
     def __init__(self, window, key_string, function):
-        self.window = window.window
+        self.window = window.tk_window
         self.key_string = key_string
         self.function = function
         self.func_id = self.window.bind(key_string, function)

@@ -2,12 +2,12 @@ import tkinter as tk
 import jelly
 
 
-class JellyWindow:
+class Window:
     def __init__(self, title):
         # create window
-        self.window = tk.Tk()
+        self.tk_window = tk.Tk()
         #self.window.attributes("-fullscreen", True)
-        self.window.title(title)
+        self.tk_window.title(title)
         self.tiles = [[jelly.Tile] for _ in range(0)]
 
     def create_grid(self, size_x, size_y):
@@ -21,9 +21,9 @@ class JellyWindow:
 
     def draw_grid(self, offset_x=0, offset_y=0, tile_size=38):
         # make Frame for every tile, or the jelly on top of it
-        for widget in self.window.winfo_children():
+        for widget in self.tk_window.winfo_children():
             widget.destroy()
-        self.window.minsize(self.size_x*(tile_size+1), self.size_y*(tile_size+1))
+        self.tk_window.minsize(self.size_x * (tile_size + 1), self.size_y * (tile_size + 1))
         for y in range(self.size_y):
             for x in range(self.size_x):
                 self.draw_tile(x, y, offset_x, offset_y, tile_size)
@@ -33,9 +33,9 @@ class JellyWindow:
         tile = self.tiles[y][x]
         if tile.get_jelly() is not None:
             tile = tile.get_jelly()
-        frame = tk.Frame(self.window)
+        frame = tk.Frame(self.tk_window)
         frame.pack()
-        frame.place(x=x*(tile_size+1)+offset_x*tile_size, y=y*(tile_size+1)+offset_y*tile_size, height=tile_size, width=tile_size)
+        frame.place(x=x*(tile_size+1)+offset_x, y=y*(tile_size+1)+offset_y, height=tile_size, width=tile_size)
         frame.configure(bg=tile.get_color())
 
     def loop(self, function):
@@ -46,7 +46,7 @@ class JellyWindow:
         pass  # make function stop running
 
     def start(self):
-        self.window.mainloop()
+        self.tk_window.mainloop()
 
     def exit(self):
         pass  # close window and stop all loops
