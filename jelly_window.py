@@ -21,6 +21,8 @@ class JellyWindow:
 
     def draw_grid(self, offset_x=0, offset_y=0, tile_size=38):
         # make Frame for every tile, or the jelly on top of it
+        for widget in self.window.winfo_children():
+            widget.destroy()
         self.window.minsize(self.size_x*(tile_size+1), self.size_y*(tile_size+1))
         for y in range(self.size_y):
             for x in range(self.size_x):
@@ -30,7 +32,6 @@ class JellyWindow:
         # draw tile
         tile = self.tiles[y][x]
         if tile.get_jelly() is not None:
-            print("has jelly")
             tile = tile.get_jelly()
         frame = tk.Frame(self.window)
         frame.pack()
