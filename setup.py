@@ -1,11 +1,12 @@
 # setupfile for the jellygame module
 # use command "python setup.py sdist" to create a source distribution
+# run "pip install 'filepath to .tar.gz file'" to install the module
 
 from distutils.core import setup
 
 setup(name='JellyGameEngine',
         version='0.1',
-        description='engine for jelly game',
+        description='jelly game engine',
         author='Jelly Game Team',
         install_requires=[
             'pyaudio >= 0.2.11',

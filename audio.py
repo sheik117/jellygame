@@ -3,6 +3,11 @@ import pyaudio
 
 class Audio:
     def __init__(self, audioFile):
+        """
+        constructor for the Audio class
+        :param audioFile: the path to the audio file
+        :type audioFile: str
+        """
         # Open the wave file
         self.f = wave.open(audioFile, 'rb')
         # Read the wave file parameters
@@ -21,12 +26,19 @@ class Audio:
                                   output=True)
 
     def play(self):
+        """
+        Play the audio object
+        (works once then stops)
+        """
         # Play the wave file
         self.data = self.f.readframes(self.num_frames)
         self.stream.write(self.data)
 
     # Stop the PyAudio stream
     def stop(self):
+        """
+        Stop the audio object (WIP)
+        """
         self.stream.stop_stream()
         self.stream.close()
 
