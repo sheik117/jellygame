@@ -1,4 +1,4 @@
-from engine.jelly import Character
+from jelly import Character
 
 
 class Item:
