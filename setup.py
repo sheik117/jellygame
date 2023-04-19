@@ -2,7 +2,7 @@
 
 from distutils.core import setup
 
-setup(name='engine',
+setup(name='JellyGameEngine',
         version='0.1',
         description='engine for jelly game',
         author='Jelly Game Team',

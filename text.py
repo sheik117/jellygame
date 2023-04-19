@@ -1,6 +1,6 @@
 import color as c
 
-class Jelly_text:
+class Text:
 
     def __init__(self, text, pos_x, pos_y, span_X, span_y, text_color=c.BLACK, background_color=c.WHITE):
         pass  # Creates textbox
