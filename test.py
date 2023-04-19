@@ -1,10 +1,9 @@
 import pyaudio
-import engine
-from engine.jelly_window import JellyWindow
-import engine.color as c
-import engine.jelly as j
-import engine.item as item
-import engine.audio as audio
+from window import JellyWindow
+import color as c
+import jelly as j
+import item as item
+import audio as audio
 
 gameWindow = JellyWindow("Jelly Game")
 
