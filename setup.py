@@ -10,15 +10,15 @@ setup(name='JellyGameEngine',
             'pyaudio >= 0.2.11',
             'wave >= 0.0.2'
         ],
-        packages=['engine'],
-        package_dir={'engine': 'engine'},
+        packages=['jellygame'],
+        package_dir={'jellygame': '.'},
         include_package_data=True,
         classifiers=[
             'Development Status :: 3 - Alpha',
             'Intended Audience :: Developers',
             'Programming Language :: Python :: 3.10.8'
         ],
-        keywords='engine game',
+        keywords='game engine',
         python_requires='>=3.9.6'
 
 )
