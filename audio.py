@@ -33,6 +33,8 @@ class Audio:
         # Play the wave file
         self.data = self.f.readframes(self.num_frames)
         self.stream.write(self.data)
+        self.f.rewind()
+        
 
     # Stop the PyAudio stream
     def stop(self):
