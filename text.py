@@ -1,3 +1,4 @@
+import tkinter as tk
 import color as c
 
 
