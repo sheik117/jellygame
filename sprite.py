@@ -1,5 +1,5 @@
 from PIL import Image, ImageTk
-Fimport tkinter as tk
+import tkinter as tk
 
 class Sprite:
     """
