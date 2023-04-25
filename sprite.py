@@ -42,13 +42,22 @@ class Sprite:
         return self.image
 
 
-    def createImage(self, gameWindow):
-        # create a Canvas object
-        canvas = tk.Canvas(gameWindow, width=500, height=500)
-        canvas.pack()
+    def renderSprite(self):
+        """
+        Returns the sprite
+        :return: sprite
+        :rtype: PhotoImage
+        """
+        return self.photo_image
 
-        # create a Sprite object
-        sprite = Sprite('player.png')
-
-        # add the sprite to the canvas
-        canvas.create_image(100, 100, image=sprite.photo_image)
+    def drawSprite(self, canvas, x, y):
+        """
+        Creates the sprite on the canvas
+        :param canvas: canvas to create the sprite on
+        :type canvas: Canvas
+        :param x: x coordinate of the sprite
+        :type x: int
+        :param y: y coordinate of the sprite
+        :type y: int
+        """
+        self.sprite = canvas.create_image(x, y, image=self.photo_image)
