@@ -41,7 +41,8 @@ class Tile:
         :return: coordinates
         :rtype: tuple
         """
-        pass
+        return self.cord
+
 
     def get_jelly(self):
         """
@@ -111,6 +112,14 @@ class Jelly():
         self.owner = owner
         self.stats = stats
 
+    def set_sprite(self, sprite):
+        """
+        Sets the sprite of the jelly
+        :param sprite: sprite
+        :type sprite: sprite
+        """
+        self.sprite = sprite
+
     def get_color(self):
         """
         Returns the color of the jelly
@@ -139,6 +148,17 @@ class Jelly():
             self.stats = {name: value}
         else:
             self.stats[name] = value
+
+    def set_pos(self, x, y):
+        """
+        Sets the position of the jelly
+        :param x: x coordinate
+        :type x: int
+        :param y: y coordinate
+        :type y: int
+        """
+
+
 
 
 class Character(Jelly):

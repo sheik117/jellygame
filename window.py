@@ -15,6 +15,10 @@ class Window:
         self.tk_window.title(title)
         self.tiles = [[jelly.Tile] for _ in range(0)]
 
+        self.canvas = tk.Canvas(self.tk_window)
+        self.canvas.pack(fill=tk.BOTH, expand=True)
+
+
     def create_grid(self, size_x, size_y):
         """
         Creates a grid of Tiles
@@ -49,6 +53,19 @@ class Window:
             for x in range(self.size_x):
                 self.draw_tile(x, y, offset_x, offset_y, tile_size)
 
+
+    # Draws canvas with grid
+    def drawCanvas(self, offset_x=0, offset_y=0, tile_size=38):
+        self.canvas.delete("all")
+        for y in range(self.size_y):
+            for x in range(self.size_x):
+                tile = self.tiles[y][x]
+                if tile.get_jelly() is not None:
+                    tile = tile.get_jelly()
+                self.canvas.create_rectangle(x * (tile_size + 1) + offset_x, y * (tile_size + 1) + offset_y,
+                                             x * (tile_size + 1) + offset_x + tile_size,
+                                             y * (tile_size + 1) + offset_y + tile_size, fill=tile.get_color())
+
     def draw_tile(self, x, y, offset_x=0, offset_y=0, tile_size=38):
         """
         Draws (renders) a single tile
@@ -72,6 +89,7 @@ class Window:
         frame.place(x=x*(tile_size+1)+offset_x, y=y*(tile_size+1)+offset_y, height=tile_size, width=tile_size)
         frame.configure(bg=tile.get_color())
 
+
     def loop(self, function):
         # make function run as long as the window exists
         pass
@@ -84,3 +102,6 @@ class Window:
 
     def exit(self):
         pass  # close window and stop all loops
+
+    def get_canvas(self):
+        return self.canvas
