@@ -16,7 +16,7 @@ class Audio:
         self.frame_rate = self.f.getframerate()
         self.num_frames = self.f.getnframes()
 
-        # Create a P    yAudio object
+        # Create a PyAudio object
         self.p = pyaudio.PyAudio()
 
         # Open a PyAudio stream
@@ -28,7 +28,6 @@ class Audio:
     def play(self):
         """
         Play the audio object
-        (works once then stops)
         """
         # Play the wave file
         self.data = self.f.readframes(self.num_frames)

@@ -41,19 +41,61 @@ class Item:
         """
         del self
 
-    def edit_item(self, name, sprite, stats):
+    def get_name(self):
         """
-        Edits the item
+        Gets the name of the item
+        :return: name of the item
+        :rtype: str
+        """
+        return self.name
+    
+    def get_sprite(self):
+        """
+        Gets the sprite of the item
+        :return: sprite of the item
+        :rtype: Sprite
+        """
+        return self.sprite
+    
+    def get_stats(self):
+        """
+        Gets the stats of the item
+        :return: stats of the item
+        :rtype: dict
+        """
+        return self.stats
+    
+    def get_amount(self):
+        """
+        Gets the amount of the item
+        :return: amount of the item
+        :rtype: int
+        """
+        return self.amount
+    
+    def set_name(self, name):
+        """
+        Sets the name of the item
         :param name: name of the item
         :type name: str
+        """
+        self.name = name
+
+    def set_sprite(self, sprite):
+        """
+        Sets the sprite of the item
         :param sprite: sprite of the item
         :type sprite: Sprite
+        """
+        self.sprite = sprite
+
+    def set_stats(self, stats):
+        """
+        Sets the stats of the item
         :param stats: stats of the item
         :type stats: dict
         """
-        self.name = name;
-        self.sprite = sprite;
-        self.stats = stats;
+        self.stats = stats
 
     # sets how many object instances of the item there are
     def set_amount(self, amount):
