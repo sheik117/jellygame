@@ -1,22 +1,21 @@
-import pyaudio
-from window import JellyWindow
-import color as c
-import jelly as j
-import item as item
-import audio as audio
+import jellygame as jg
 
-gameWindow = JellyWindow("Jelly Game")
+gameWindow = jg.window.Window("Jelly Game")
 
 gameWindow.create_grid(20, 20)
 
-player = j.Jelly(c.GREEN, "player")
+player = jg.jelly.Jelly(jg.color.GREEN, "player")
 gameWindow.tiles[5][5].set_jelly(player)
-character = j.Character(player)
-goblin = j.Jelly(c.RED, "goblin")
-character = j.Character(goblin)
+character = jg.jelly.Character(player)
+goblin = jg.jelly.Jelly(jg.color.RED, "goblin")
+character = jg.jelly.Character(goblin)
 gameWindow.tiles[5][10].set_jelly(goblin)
 
-sword = item.Item("Sword")
+sprite = jg.sprite.Sprite("player.png")
+player.sprite = sprite
+sprite.createImage(gameWindow)
+
+sword = jg.item.Item("Sword")
 sword.add_stat("damage", 2)
 
 gameWindow.draw_grid()
