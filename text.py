@@ -1,28 +1,33 @@
 import color as c
 
+
 class Text:
-
-    def __init__(self, text, pos_x, pos_y, span_X, span_y, text_color=c.BLACK, background_color=c.WHITE):
-        pass  # Creates textbox
-
-    def set_text_color(self, color):
-        pass  # Sets color for textbox on front layer
+    def __init__(self, text, pos_x, pos_y, span_x, span_y, text_size, text_color=c.BLACK, background_color=c.WHITE):
+        self.text = text
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+        self.span_x = span_x
+        self.span_y = span_y
+        self.text_size = text_size
+        self.text_color = text_color
+        self.background_color = background_color
 
     def set_text(self, text):
-        pass  # Sets text in textbox
-
-    def set_background_color(self, color):
-        pass  # Sets the backgrund layer color in textbox
-
-    def set_font_size(self, font_size):
-        pass  # Sets the font size
-
-    def set_window(self, window):
-        pass  # Sets the window the textbox is rendered in
-
-    def set_span(self, span1, span2):
-        pass  # Sets how long the textbox is
+        self.text = text
 
     def set_position(self, x, y):
-        pass  # sets the position of the textbox in the grid with x,y coordinates
+        self.pos_x = x
+        self.pos_y = y
 
+    def set_span(self, x, y):
+        self.span_x = x
+        self.span_y = y
+
+    def set_text_size(self, size):
+        self.text_size = size
+
+    def set_text_color(self, color):
+        self.text_color = color
+
+    def set_background_color(self, color):
+        self.background_color = color
