@@ -4,7 +4,7 @@ import text as t
 
 
 class Window:
-    def __init__(self, title):
+    def __init__(self, title, fullscreen=False):
         """
         Constructor for Window class
 
@@ -12,7 +12,7 @@ class Window:
         :type title: str
         """
         self.tk_window = tk.Tk()
-        #self.window.attributes("-fullscreen", True)
+        self.tk_window.attributes("-fullscreen", fullscreen)
         self.tk_window.title(title)
         self.tiles = [[j.Tile] for _ in range(0)]
         self.texts = []
@@ -79,14 +79,13 @@ class Window:
                                              y * (tile_size + 1) + offset_y + tile_size, fill=tile.get_color())
 
     def draw_text(self, text):
-        print(text.text)
         label = tk.Label(self.tk_window, text=text.text)
         label.pack()
         label.place(x=text.pos_x * (self.tile_size + self.show_grid) + self.offset_x,
                     y=text.pos_y * (self.tile_size + self.show_grid) + self.offset_y,
                     height=text.span_y * (self.tile_size + self.show_grid) - self.show_grid,
                     width=text.span_x * (self.tile_size + self.show_grid) - self.show_grid)
-        label.configure(bg=text.background_color, fg=text.text_color, font=("Arial", text.text_size))
+        label.configure(bg=text.background_color, fg=text.text_color, font=("Comic Sans MS", text.text_size))
 
     def draw_tile(self, x, y):
         """
