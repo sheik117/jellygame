@@ -40,7 +40,7 @@ class Window:
     def add_text(self, text):
         self.texts.append(text)
 
-    def draw_grid(self, offset_x=0, offset_y=0, tile_size=38):
+    def draw_grid(self, offset_x=0, offset_y=0, tile_size=38, show_grid=True):
         """
         Draws (renders) the grid of Tiles
         :param offset_x: offset in x dimension
@@ -54,9 +54,10 @@ class Window:
         self.offset_x = offset_x
         self.offset_y = offset_y
         self.tile_size = tile_size
+        self.show_grid = show_grid
         for widget in self.tk_window.winfo_children():
             widget.destroy()
-        self.tk_window.minsize(self.size_x * (tile_size + 1), self.size_y * (tile_size + 1))
+        self.tk_window.minsize(self.size_x * (tile_size + show_grid), self.size_y * (tile_size + show_grid))
         for y in range(self.size_y):
             for x in range(self.size_x):
                 self.draw_tile(x, y)
@@ -77,14 +78,15 @@ class Window:
                                              x * (tile_size + 1) + offset_x + tile_size,
                                              y * (tile_size + 1) + offset_y + tile_size, fill=tile.get_color())
 
-    def draw_tile(self, x, y, offset_x=0, offset_y=0, tile_size=38):
     def draw_text(self, text):
-        print(text)
-        frame = tk.Label(self.tk_window, text=text.text)
-        frame.pack()
-        frame.place(x=text.pos_x * (self.tile_size + 1) + self.offset_x, y=text.pos_y * (self.tile_size + 1) + self.offset_y,
-                    height=text.span_y*self.tile_size, width=text.span_x*self.tile_size)
-        frame.configure(bg=text.background_color)
+        print(text.text)
+        label = tk.Label(self.tk_window, text=text.text)
+        label.pack()
+        label.place(x=text.pos_x * (self.tile_size + self.show_grid) + self.offset_x,
+                    y=text.pos_y * (self.tile_size + self.show_grid) + self.offset_y,
+                    height=text.span_y * (self.tile_size + self.show_grid) - self.show_grid,
+                    width=text.span_x * (self.tile_size + self.show_grid) - self.show_grid)
+        label.configure(bg=text.background_color, fg=text.text_color, font=("Arial", text.text_size))
 
     def draw_tile(self, x, y):
         """
@@ -106,8 +108,10 @@ class Window:
             tile = tile.get_jelly()
         frame = tk.Frame(self.tk_window)
         frame.pack()
-        frame.place(x=x*(self.tile_size+1)+self.offset_x, y=y*(self.tile_size+1)+self.offset_y,
-                    height=self.tile_size, width=self.tile_size)
+        frame.place(x=x*(self.tile_size+self.show_grid)+self.offset_x,
+                    y=y*(self.tile_size+self.show_grid)+self.offset_y,
+                    height=self.tile_size,
+                    width=self.tile_size)
         frame.configure(bg=tile.get_color())
 
 
