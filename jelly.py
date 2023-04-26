@@ -76,6 +76,14 @@ class Tile:
         """
         self.terrain = terrain
 
+    def get_sprite(self):
+        """
+        Returns the sprite of the tile
+        :return: sprite
+        :rtype: sprite
+        """
+        return self.sprite
+
 
 class Terrain:
     """
