@@ -1,6 +1,5 @@
 import tkinter as tk
 import jelly as j
-import text as t
 
 
 class Window:
@@ -39,6 +38,9 @@ class Window:
 
     def add_text(self, text):
         self.texts.append(text)
+
+    def remove_text(self, text):
+        self.texts.remove(text)
 
     def draw_grid(self, offset_x=0, offset_y=0, tile_size=38, show_grid=True):
         """
