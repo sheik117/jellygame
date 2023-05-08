@@ -5,9 +5,11 @@ class Tile:
     """
     Tile class represents a square in the grid
     """
-    def __init__(self, color=c.WHITE, sprite=None, jelly=None):
+    def __init__(self, pos, color=c.WHITE, sprite=None, jelly=None):
         """
         Constructor for Tile class
+        :param pos: coordinates of the tile
+        :type pos: tuple
         :param color: background color of the tile
         :type color: color
         :param sprite: sprite of the tile
@@ -15,6 +17,7 @@ class Tile:
         :param jelly: jelly on the tile
         :type jelly: jelly
         """
+        self.pos = pos
         self.color = color
         self.sprite = sprite
         self.jelly = jelly
@@ -35,13 +38,13 @@ class Tile:
         """
         self.color = color
 
-    def get_cord(self):
+    def get_pos(self):
         """
         Returns the coordinates of the tile
         :return: coordinates
         :rtype: tuple
         """
-        return self.cord
+        return self.pos
 
 
     def get_jelly(self):
@@ -151,14 +154,56 @@ class Jelly():
         else:
             self.stats[name] = value
 
-    def set_pos(self, x, y):
+    def set_pos(self, pos):
         """
         Sets the position of the jelly
-        :param x: x coordinate
+        :param pos: position
+        :type pos: tuple
+        """
+        self.pos = pos
+
+    def get_pos(self):
+        """
+        Returns the position of the jelly
+        :return: position
+        :rtype: tuple
+        """
+        return self.pos
+    
+    def get_owner(self):
+        """
+        Returns the owner of the jelly
+        :return: owner
+        :rtype: int
+        """
+        return self.owner
+    
+    def set_owner(self, owner):
+        """
+        Sets the owner of the jelly
+        :param owner: owner
+        :type owner: int
+        """
+        self.owner = owner
+
+    def get_inv(self):
+        """
+        Returns the inventory of the jelly
+        :return: inventory
+        :rtype: Inventory
+        """
+        return self.inv
+    
+    def move(self, x, y):
+        """
+        Moves the jelly
+        :param x: distance to move in the x direction
         :type x: int
-        :param y: y coordinate
+        :param y: distance to move in the y direction 
         :type y: int
         """
+        pass
+
     def get_sprite(self):
         """
         Returns the sprite of the tile
