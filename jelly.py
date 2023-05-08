@@ -1,4 +1,4 @@
-import color as c
+from jellygame import color as c
 
 
 class Tile:

@@ -12,13 +12,21 @@ character = jg.jelly.Character(goblin)
 gameWindow.tiles[5][10].set_jelly(goblin)
 
 sprite = jg.sprite.Sprite("player.png")
-player.sprite = sprite
-sprite.createImage(gameWindow)
+
+gameWindow.drawCanvas()
+player.set_sprite(sprite)
+#sprite.drawSprite(gameWindow.get_canvas(), 5, 5)
+#player.get_sprite().drawSprite(gameWindow.get_canvas(), 5, 5)
+tile = gameWindow.tiles[5][5]
+jelly = tile.get_jelly()
+sprite = jelly.get_sprite()
+sprite.drawSprite(gameWindow.get_canvas(), 5, 5)
+#gameWindow.tiles[5][5].get_jelly().get_sprite().drawSprite(gameWindow.get_canvas(), [5, 5])
+
+#gameWindow.draw_grid()
+
 
 sword = jg.item.Item("Sword")
 sword.add_stat("damage", 2)
-
-gameWindow.draw_grid()
-
 gameWindow.start()
 

@@ -1,5 +1,5 @@
 import tkinter as tk
-import jelly as j
+from jellygame import jelly as j
 
 
 class Window:
@@ -79,6 +79,20 @@ class Window:
                 self.canvas.create_rectangle(x * (tile_size + 1) + offset_x, y * (tile_size + 1) + offset_y,
                                              x * (tile_size + 1) + offset_x + tile_size,
                                              y * (tile_size + 1) + offset_y + tile_size, fill=tile.get_color())
+
+    # sets tiles on the canvas
+    def set_tiles_on_canvas(self, offset_x=0, offset_y=0, tile_size=38):
+        for y in range(self.size_y):
+            for x in range(self.size_x):
+                tile = self.tiles[y][x]
+                if tile.get_jelly() is not None:
+                    tile = tile.get_jelly()
+                self.canvas.create_rectangle(x * (tile_size + 1) + offset_x, y * (tile_size + 1) + offset_y,
+                                             x * (tile_size + 1) + offset_x + tile_size,
+                                             y * (tile_size + 1) + offset_y + tile_size, fill=tile.get_color())
+
+
+
 
     def draw_text(self, text):
         label = tk.Label(self.tk_window, text=text.text)
