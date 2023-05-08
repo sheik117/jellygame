@@ -1,5 +1,5 @@
 import tkinter as tk
-import jelly as j
+from jellygame import jelly as j
 
 
 class Window:

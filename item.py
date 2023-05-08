@@ -1,4 +1,4 @@
-from jelly import Character
+from jellygame import jelly
 
 
 class Item:
@@ -104,7 +104,7 @@ class Item:
         :param amount: amount of the item
         :type amount: int
         """
-        self.amount = amount;
+        self.amount = amount
 
 
 class ConsumableItem(Item):
@@ -133,6 +133,6 @@ class ConsumableItem(Item):
         if amount is None:
             amount = self.amount
         self.amount -= amount
-        Character.add_stat(self.stats)
+        jelly.Character.add_stat(self.stats)
         if self.amount <= 0:
             self.delete_item()

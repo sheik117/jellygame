@@ -1,6 +1,3 @@
-import tkinter as tk
-
-
 # one key per input_action, can make it a list later
 class InputAction:
     def __init__(self, window, key_string, function):
