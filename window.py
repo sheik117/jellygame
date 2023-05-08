@@ -34,7 +34,7 @@ class Window:
         self.size_y = size_y
         for y in range(size_y):
             for x in range(size_x):
-                self.tiles[y][x] = j.Tile()
+                self.tiles[y][x] = j.Tile((x, y))
 
     def add_text(self, text):
         self.texts.append(text)
