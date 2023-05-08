@@ -1,5 +1,4 @@
-import tkinter as tk
-import color as c
+from jellygame import color as c
 
 
 class Text:
