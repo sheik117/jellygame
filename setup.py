@@ -9,8 +9,9 @@ setup(name='JellyGameEngine',
         description='jelly game engine',
         author='Jelly Game Team',
         install_requires=[
-            'pyaudio >= 0.2.11',
-            'wave >= 0.0.2'
+            'pyaudio >= 0.2.13',
+            'wave >= 0.0.2',
+            'Pillow >= 9.5.0'
         ],
         packages=['jellygame'],
         package_dir={'jellygame': '.'},
