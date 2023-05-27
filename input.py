@@ -16,6 +16,9 @@ class InputAction:
         self.window.unbind(self.key_string, self.func_id)
         self.func_id = self.window.bind(self.key_string, self.function)
 
+    def __del__(self):
+        self.window.unbind(self.key_string, self.func_id)
+
 
 # standard function called by standard input_actions
 def print_input_action(input_action_name):
