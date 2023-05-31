@@ -12,8 +12,9 @@ class InputAction:
         self.func_id = self.window.bind(self.key_string, new_function)
 
     def change_key(self, new_key_string):
+        if self.key_string is not None:
+            self.window.unbind(self.key_string, self.func_id)
         self.key_string = new_key_string
-        self.window.unbind(self.key_string, self.func_id)
         self.func_id = self.window.bind(self.key_string, self.function)
 
     def unbind(self):
