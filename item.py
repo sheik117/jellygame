@@ -112,7 +112,7 @@ class ConsumableItem(Item):
     ConsumableItem class represents a consumable item in the game
     Extends Item class
     """
-    def __init__(self, name, sprite, stats=None):
+    def __init__(self, name, sprite=None, stats=None):
         """
         Constructor for ConsumableItem class
         :param name: name of the item
