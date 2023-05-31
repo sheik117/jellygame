@@ -1,4 +1,5 @@
 from jellygame import color as c
+from jellygame import Inventory
 
 
 class Tile:
@@ -78,6 +79,14 @@ class Tile:
         :type terrain: terrain
         """
         self.terrain = terrain
+    
+    def get_sprite(self):
+        """
+        Returns the sprite of the tile
+        :return: sprite
+        :rtype: sprite
+        """
+        return self.sprite
 
 
 
@@ -97,7 +106,7 @@ class Jelly():
     """
     Jelly class represents a generic game object
     """
-    def __init__(self, color=c.WHITE, sprite=None, owner=0, inv=None, stats=None):
+    def __init__(self, color=c.WHITE, sprite=None, owner=0, inv=Inventory(), stats=dict()):
         """
         Constructor for Jelly class
         :param color: background color of the jelly
@@ -194,6 +203,14 @@ class Jelly():
         """
         return self.inv
     
+    def set_inv(self, inv):
+        """
+        Sets the inventory of the jelly
+        :param inv: inventory
+        :type inv: Inventory
+        """
+        self.inv = inv
+    
     def move(self, x, y):
         """
         Moves the jelly
@@ -215,7 +232,7 @@ class Jelly():
 
 
 class Character(Jelly):
-    def __init__(self, hp=10, mp=10, color=c.WHITE, sprite=None, owner=0, inv=None, stats=None):
+    def __init__(self,hp=10, mp=10, color=c.WHITE, sprite=None, owner=0, inv=Inventory(), stats=dict()):
         """
         Constructor for Character class
         Extends Jelly class
@@ -234,11 +251,7 @@ class Character(Jelly):
         :param stats: additional stats of the character
         :type stats: dict
         """
-        super().__init__(color, sprite, owner, inv, stats)
-        self.hp = hp
-        self.max_hp = hp
-        self.mp = mp
-        self.max_mp = mp
+        super().__init__(color, sprite, owner, inv, stats=dict(hp=hp, hp_max=hp, mp=mp, mp_max=mp))
 
     def movement(self, x, y):
         """

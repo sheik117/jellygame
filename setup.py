@@ -1,11 +1,11 @@
 # setupfile for the jellygame module
 # use command "python setup.py sdist" to create a source distribution
-# run "pip install 'filepath to .tar.gz file'" to install the module
+# run "pip install 'filepath to .tar.gz file'" to install the module. Example: "pip install dist/JellyGameEngine-0.3.tar.gz"
 
 from distutils.core import setup
 
 setup(name='JellyGameEngine',
-        version='0.1',
+        version='0.3',
         description='jelly game engine',
         author='Jelly Game Team',
         install_requires=[

@@ -8,6 +8,6 @@ from .sprite import Sprite
 from .text import Text
 from .window import Window
 
-VERSION = "0.1"
+VERSION = "0.3"
 
 print("Initializing JellyGameEngine...")

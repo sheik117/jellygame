@@ -31,7 +31,9 @@ class Sprite:
         :param size: size
         :type size: tuple
         """
-        self.photo_image.config(width=size[0], height=size[1])
+        #self.photo_image.config(width=size[0], height=size[1])
+        self.photo_image.height = size[1]
+        self.photo_image.width = size[0]
 
     def getImage(self):
         """
@@ -60,4 +62,8 @@ class Sprite:
         :param y: y coordinate of the sprite
         :type y: int
         """
-        self.sprite = canvas.create_image(x, y, image=self.photo_image)
+        #sprite is rendered sligtly off
+
+        self.sprite = canvas.create_image(x*38 + x + self.photo_image.width()/2, y*38 + x + self.photo_image.height()/2, image=self.photo_image)
+        #self.sprite = canvas.create_image(x*38 + x + 32, y*38 + x + 32, image=self.photo_image)
+        
