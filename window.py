@@ -83,6 +83,15 @@ class Window:
 
     # Draws canvas with grid
     def draw_canvas(self, offset_x=0, offset_y=0, tile_size=38):
+        """
+        Draws (renders) the grid of Tiles
+        :param offset_x: offset in x dimension
+        :type offset_x: int
+        :param offset_y: offset in y dimension
+        :type offset_y: int
+        :param tile_size: size of the tiles
+        :type tile_size: int
+        """
         self.canvas.delete("all")
         for y in range(self.size_y):
             for x in range(self.size_x):
@@ -93,21 +102,13 @@ class Window:
                                              x * (tile_size + 1) + offset_x + tile_size,
                                              y * (tile_size + 1) + offset_y + tile_size, fill=tile.get_color())
 
-    # sets tiles on the canvas
-    def set_tiles_on_canvas(self, offset_x=0, offset_y=0, tile_size=38):
-        for y in range(self.size_y):
-            for x in range(self.size_x):
-                tile = self.tiles[y][x]
-                if tile.get_jelly() is not None:
-                    tile = tile.get_jelly()
-                self.canvas.create_rectangle(x * (tile_size + 1) + offset_x, y * (tile_size + 1) + offset_y,
-                                             x * (tile_size + 1) + offset_x + tile_size,
-                                             y * (tile_size + 1) + offset_y + tile_size, fill=tile.get_color())
-
-
-
 
     def draw_text(self, text):
+        """
+        Draws (renders) a single text
+        :param text: Text to be rendered
+        :type text: Text
+        """
         label = tk.Label(self.tk_window, text=text.text)
         label.pack()
         label.place(x=text.pos_x * (self.tile_size + self.show_grid) + self.offset_x,
@@ -123,12 +124,6 @@ class Window:
         :type x: int
         :param y: y coordinate of the tile
         :type y: int
-        :param offset_x: offset in x dimension
-        :type offset_x: int
-        :param offset_y: offset in y dimension
-        :type offset_y: int
-        :param tile_size: size of the tiles
-        :type tile_size: int
         """
         # draw tile
         tile = self.tiles[y][x]
@@ -143,13 +138,6 @@ class Window:
         frame.configure(bg=tile.get_color())
 
 
-    #def loop(self, function):
-        # make function run as long as the window exists
-        #pass
-
-    #def stop_loop(self, function):
-        #pass  # make function stop running
-
     def start(self):
         self.tk_window.mainloop()
 
@@ -157,4 +145,9 @@ class Window:
         self.tk_window.destroy()
 
     def get_canvas(self):
+        """
+        Returns the canvas of the window
+        :return: canvas
+        :rtype: Canvas
+        """
         return self.canvas

@@ -133,6 +133,5 @@ class ConsumableItem(Item):
         if amount is None:
             amount = self.amount
         self.amount -= amount
-        jelly.Character.add_stat(self.stats)
         if self.amount <= 0:
             self.delete_item()

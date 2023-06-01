@@ -50,7 +50,7 @@ class Sprite:
         return self.image
 
 
-    def render_sprite(self):
+    def get_photo_image(self):
         """
         Returns the sprite
         :return: sprite

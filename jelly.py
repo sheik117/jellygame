@@ -6,7 +6,7 @@ class Tile:
     """
     Tile class represents a square in the grid
     """
-    def __init__(self, pos, color=c.WHITE, sprite=None, jelly=None):
+    def __init__(self, pos, color=c.WHITE, sprite=None, jelly=None, terrain=None):
         """
         Constructor for Tile class
         :param pos: coordinates of the tile
@@ -17,11 +17,14 @@ class Tile:
         :type sprite: sprite
         :param jelly: jelly on the tile
         :type jelly: jelly
+        :param terrain: terrain type of the tile
+        :type terrain: int
         """
         self.pos = pos
         self.color = color
         self.sprite = sprite
         self.jelly = jelly
+        self.terrain = terrain
 
     def get_color(self):
         """
@@ -70,7 +73,7 @@ class Tile:
         :return: terrain
         :rtype: terrain
         """
-        pass
+        return self.terrain
 
     def set_terrain(self, terrain):
         """
@@ -87,19 +90,14 @@ class Tile:
         :rtype: sprite
         """
         return self.sprite
-
-
-
-
-class Terrain:
-    """
-    Terrain class represents the terrain type of a tile
-    """
-    def __init__(self) -> None:
+    
+    def set_sprite(self, sprite):
         """
-        Constructor for Terrain class
+        Sets the sprite of the tile
+        :param sprite: sprite
+        :type sprite: sprite
         """
-        pass
+        self.sprite = sprite
 
 
 class Jelly():
