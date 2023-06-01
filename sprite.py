@@ -23,7 +23,7 @@ class Sprite:
 
         
         
-    def getSize(self):
+    def get_size(self):
         """
         Returns the size of the sprite
         :return: size
@@ -31,7 +31,7 @@ class Sprite:
         """
         return self.photo_image.width(), self.photo_image.height()
     
-    def setSize(self, size):
+    def set_size(self, size):
         """
         Sets the size of the sprite
         :param size: size
@@ -41,7 +41,7 @@ class Sprite:
         self.photo_image.height = size[1]
         self.photo_image.width = size[0]
 
-    def getImage(self):
+    def get_image(self):
         """
         Returns the image of the sprite
         :return: image
@@ -50,7 +50,7 @@ class Sprite:
         return self.image
 
 
-    def renderSprite(self):
+    def render_sprite(self):
         """
         Returns the sprite
         :return: sprite
@@ -58,7 +58,7 @@ class Sprite:
         """
         return self.photo_image
 
-    def drawSprite(self, canvas, x, y):
+    def draw_sprite(self, canvas, x, y):
         """
         Creates the sprite on the canvas
         :param canvas: canvas to create the sprite on

@@ -82,7 +82,7 @@ class Window:
 
 
     # Draws canvas with grid
-    def drawCanvas(self, offset_x=0, offset_y=0, tile_size=38):
+    def draw_canvas(self, offset_x=0, offset_y=0, tile_size=38):
         self.canvas.delete("all")
         for y in range(self.size_y):
             for x in range(self.size_x):
