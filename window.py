@@ -3,12 +3,16 @@ from jellygame import jelly as j
 
 
 class Window:
+    """
+    Window class represents a window where the game will be rendered
+    """
     def __init__(self, title, fullscreen=False):
         """
         Constructor for Window class
-
         :param title: Title of the window
         :type title: str
+        :param fullscreen: If the window should be opened in fullscreen
+        :type fullscreen: bool
         """
         self.tk_window = tk.Tk()
         self.tk_window.attributes("-fullscreen", fullscreen)
@@ -18,7 +22,6 @@ class Window:
 
         self.canvas = tk.Canvas(self.tk_window)
         self.canvas.pack(fill=tk.BOTH, expand=True)
-
 
     def create_grid(self, size_x, size_y):
         """
@@ -37,9 +40,19 @@ class Window:
                 self.tiles[y][x] = j.Tile((x, y))
 
     def add_text(self, text):
+        """
+        Adds a Text to be rendered over the grid
+        :param text: Text to be added
+        :type text: Text
+        """
         self.texts.append(text)
 
     def remove_text(self, text):
+        """
+        Removes a Text from being rendered over the grid
+        :param text: Text to be removed
+        :type text: Text
+        """
         self.texts.remove(text)
 
     def draw_grid(self, offset_x=0, offset_y=0, tile_size=38, show_grid=True):
@@ -130,18 +143,18 @@ class Window:
         frame.configure(bg=tile.get_color())
 
 
-    def loop(self, function):
+    #def loop(self, function):
         # make function run as long as the window exists
-        pass
+        #pass
 
-    def stop_loop(self, function):
-        pass  # make function stop running
+    #def stop_loop(self, function):
+        #pass  # make function stop running
 
     def start(self):
         self.tk_window.mainloop()
 
-    def exit(self):
-        pass  # close window and stop all loops
+    def exit(self, event=None):
+        self.tk_window.destroy()
 
     def get_canvas(self):
         return self.canvas
