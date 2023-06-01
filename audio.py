@@ -28,7 +28,7 @@ class Audio:
                                     output=True)
         except FileNotFoundError:
             logging.error("Audio file not found")
-            raise FileNotFoundError
+
 
 
     def play(self):
@@ -42,10 +42,10 @@ class Audio:
             self.f.rewind()
         except AttributeError:
             logging.error("Audio file not opened")
-            raise AttributeError
+
         except wave.Error:
             logging.error("Error ocured when reading the wave file")
-            raise wave.Error
+
 
     # Stop the PyAudio stream
     def stop(self):

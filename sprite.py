@@ -20,7 +20,7 @@ class Sprite:
             self.photo_image = ImageTk.PhotoImage(self.image)
         except FileNotFoundError:
             logging.error("Sprite file not found")
-            raise FileNotFoundError
+
         
         
     def getSize(self):
@@ -74,5 +74,5 @@ class Sprite:
             #self.sprite = canvas.create_image(x*38 + x + 32, y*38 + x + 32, image=self.photo_image)
         except AttributeError:
             logging.error("Sprite not rendered")
-            raise AttributeError
+
         
