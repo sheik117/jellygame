@@ -1,5 +1,7 @@
 # Initializes inventory for a jelly entity
 # Creates an array with the given size (length) which works as item slots for the jelly entity
+import logging
+
 class Inventory:
     """
     Inventory class represents the inventory of a jelly entity
@@ -21,15 +23,18 @@ class Inventory:
         """
         if self.items is None:
             self.items = [item]
+            return True
         elif len(self.items) + item.amount > self.size:
-            # inventory is full
-            pass
+            logging.error("Inventory is full")
+            return False
         else:
             existing_item = next((x for x in self.items if x.name == item.name), None)
             if existing_item is not None:
                 existing_item.amount += item.amount
+                return True
             else:
                 self.items.append(item)
+                return True
 
 
     def remove_item(self, item, amount=0):
@@ -46,11 +51,13 @@ class Inventory:
         if self.items[item].name == item.name:
             if self.items[item].amount > amount:
                 self.items[item].amount -= amount
+                return True
             else:
                 self.items.remove(item)
+                return True
         else:
-            # Item not in inventory
-            pass
+            logging.error("Item not found in inventory")
+            return False
 
 
     def set_size(self, size):
