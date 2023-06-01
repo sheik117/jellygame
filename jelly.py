@@ -205,7 +205,7 @@ class Jelly():
     
     def set_inv(self, inv):
         """
-        Sets the inventory of the jelly
+        Overwrites the inventory of the jelly
         :param inv: inventory
         :type inv: Inventory
         """
