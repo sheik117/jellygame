@@ -1,5 +1,6 @@
 from .audio import Audio
 from . import color
+from . import input
 from .input import InputAction
 from .inventory import Inventory
 from .item import Item, ConsumableItem

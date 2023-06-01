@@ -1,3 +1,4 @@
+import logging
 from PIL import Image, ImageTk
 import tkinter as tk
 
@@ -13,10 +14,15 @@ class Sprite:
         :param size: size of the sprite, default is (32, 32)
         :type size: tuple
         """
-        self.image = Image.open(file)
-        self.image = self.image.resize(size)
-        self.photo_image = ImageTk.PhotoImage(self.image)
-    
+        try:
+            self.image = Image.open(file)
+            self.image = self.image.resize(size)
+            self.photo_image = ImageTk.PhotoImage(self.image)
+        except FileNotFoundError:
+            logging.error("Sprite file not found")
+
+        
+        
     def getSize(self):
         """
         Returns the size of the sprite
@@ -63,7 +69,10 @@ class Sprite:
         :type y: int
         """
         #sprite is rendered sligtly off
+        try:
+            self.sprite = canvas.create_image(x*38 + x + self.photo_image.width()/2, y*38 + x + self.photo_image.height()/2, image=self.photo_image)
+            #self.sprite = canvas.create_image(x*38 + x + 32, y*38 + x + 32, image=self.photo_image)
+        except AttributeError:
+            logging.error("Sprite not rendered")
 
-        self.sprite = canvas.create_image(x*38 + x + self.photo_image.width()/2, y*38 + x + self.photo_image.height()/2, image=self.photo_image)
-        #self.sprite = canvas.create_image(x*38 + x + 32, y*38 + x + 32, image=self.photo_image)
         

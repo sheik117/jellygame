@@ -5,7 +5,7 @@ class Item:
     """
     Item class represents an item in the game
     """
-    def __init__(self, name, sprite=None, stats=None, amount=1):
+    def __init__(self, name, sprite=None, stats=dict(), amount=1):
         """
         Constructor for Item class
         :param name: name of the item
@@ -20,7 +20,7 @@ class Item:
         self.name = name
         self.sprite = sprite
         self.stats = stats
-        self.amount = amount;
+        self.amount = amount
 
     def add_stat(self, name, value):
         """
@@ -91,7 +91,7 @@ class Item:
 
     def set_stats(self, stats):
         """
-        Sets the stats of the item
+        Overwrites the stats of the item
         :param stats: stats of the item
         :type stats: dict
         """
@@ -112,7 +112,7 @@ class ConsumableItem(Item):
     ConsumableItem class represents a consumable item in the game
     Extends Item class
     """
-    def __init__(self, name, sprite=None, stats=None):
+    def __init__(self, name, sprite=None, stats=dict()):
         """
         Constructor for ConsumableItem class
         :param name: name of the item
