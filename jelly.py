@@ -247,7 +247,7 @@ class Character(Jelly):
         :param owner: faction the character belongs to
         :type owner: int
         :param inv: inventory of the character
-        :type inv: dict
+        :type inv: Inventory
         :param stats: additional stats of the character
         :type stats: dict
         """
